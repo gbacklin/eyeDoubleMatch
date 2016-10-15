@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf430
+{\fonttbl\f0\fnil\fcharset0 Verdana;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red42\green42\blue42;\red250\green252\blue255;\red51\green108\blue141;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid0\'02\'05.;}{\levelnumbers\'01;}}{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl320\sa300\ql\qnatural
+
+\f0\b\fs22 \cf2 \cb3 Q: Shuffling \'96 Shuffle a deck of cards \'96 Knuth Shuffle
+\b0 \
+Shuffling is a process where the order of elements in a data set is randomized to provide an element of chance. One of the most common applications of this is to shuffle a deck of cards.\
+Mathematically, the shuffling problem, is basically a problem of computing a random permutation of N objects, since shuffling a deck of cards is basically subjecting a deck of cards to a random permutation.\
+Card shuffling algorithms are used in computer games, casinos, etc. Before we delve into the algorithms, let\'92s look into what are really trying to solve here. These are the kind of things that an interviewer will be looking into apart from the algorithm itself. The choice of algorithm and data structure chosen for this, needs to be based on where, who and how this is going to be used.\
+As I just mentioned, this is something used in the gaming industry (Computers, Video Games, Casinos etc\'85). This purpose of this algorithm is to introduce an element of chance into the data set (deck of cards) and make it impossible for the user to find a pattern and predict the occurrence of un-dealt cards. The size of the data set is small (52 elements), and so the complexity of the algorithm is usually not of high concern. A O(n^2), v/s an O(n lg n) v/s an O(n) for example would be a few milliseconds. Of course, a real bad implementation with O(n^n) would certainly be of concern, although I guess it is going to be difficult to come up with a O(n^n) algorithm in the first place.\
+It is important to look at problems with this angle. Sometimes, it takes too much time and effort to come up with a faster algorithm, and it the end it could end up providing very less value. The keyword here cost/benefit ratio.\
+OK, so we\'92ve learnt that the complexity of the algorithm we choose is not of high priority. What else? Since this is something that will be used in a casino, we need to eliminate the element of predictability. We don\'92t want people to be able to predict what the next card in the deck might be, even with a low probability.\
+The problem itself involves randomization, and we are definitely going to deal with random numbers. Some random numbers, have bias on some of bits in a number, e,g rand() has a bias on the upper bits in a number. We want to be avoiding such generators.\
+There are few basic well known solutions to this problem, the first of this is an O(n lg n) algorithm. I won\'92t be writing code for this, but I will go over the algorithm. The solution involves simple assigning a random number to each card, and sorting them in order of their assigned number. There is a chance that two of the cards are assigned the same number. This check can be checked each time you assign a number, or even better this can be checked when you sort the cards and redo it all over again, or redo the same problem on the smaller set usually 2 cards, if you have got more than 2 cards, actually even 2 cards, then you\'92ve chosen a bad random number generator.\
+The more elegant and faster of the two algorithms is also known as the Knuth Shuffle, popularized by {\field{\*\fldinst{HYPERLINK "http://www-cs-faculty.stanford.edu/~knuth/"}}{\fldrslt 
+\b \cf4 Donald Knuth}}, in his book , {\field{\*\fldinst{HYPERLINK "http://www-cs-faculty.stanford.edu/~knuth/taocp.html"}}{\fldrslt 
+\b \cf4 The Art of Computer Programming}}. The algorithm was originally published by R.A. Fisher and F. Yates [Statitiscal Tables (London 1938, Example 12], in ordinary language, and by R. Durstenfeld [CACM 7 (1964), 420] in computer language. Here\'92s the algorithm in ordinary language.\
+Let X1, X2\'85. XN (In this case N=52) be the set of N numbers to be shuffled.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\ql\qnatural
+\ls1\ilvl0\cf2 {\listtext	1.	}Set j to N\
+{\listtext	2.	}Generate a random number R. (uniformly distributed between 0 and 1)\
+{\listtext	3.	}Set k to (jR+1). k is now a random integer, between 1 and j.\
+{\listtext	4.	}Exchange Xk and Xj\
+{\listtext	5.	}Decrease j by 1.\
+{\listtext	6.	}If j > 1, return to step 2.\
+\pard\pardeftab720\sl320\sa300\ql\qnatural
+\cf2 \
+\pard\pardeftab720\ql\qnatural
+
+\f1\fs20 \cf2 void KnuthShuffle(int* pArr)\
+\{\
+    int rand;\
+    for(int i=51;i>=0;i--)\
+    \{\
+        rand=GenRand(0,i);\
+        swap(pArr[i], pArr[rand]);\
+    \}\
+\}\
+\pard\pardeftab720\sl320\sa300\ql\qnatural
+
+\f0\fs22 \cf2 \
+GenRand(int min, int max) generates a random number between min and max.\
+\pard\pardeftab720\sl320\sa300\ql\qnatural
+
+\b \cf2 \ul \ulc2 For the mathematically oriented:
+\b0 \ulnone \
+Traditional shuffling procedures turn out to be miserable inadequate. Reportedly, expert bridge players make use of this fact when deciding whether or not to finesse. At least seven \'93riffle shuffles\'94 of a 52-card deck are needed to reach a distribution within 10% of uniform, and 14 random riffles are guaranteed to do so. [Aldous and Diaconis, AMM 93 (1986), 333-348] [Knuth, The Art of Computer Programming, Random Sampling and Shuffling]\
+}
