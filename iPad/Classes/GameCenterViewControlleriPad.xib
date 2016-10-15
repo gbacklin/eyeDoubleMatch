@@ -93,7 +93,7 @@
                     <frame key="frameInset" minY="20" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem title="Statistics" id="14">
+                        <navigationItem title="Game Center Statistics" id="14">
                             <barButtonItem key="rightBarButtonItem" systemItem="done" id="15">
                                 <connections>
                                     <action selector="done:" destination="-1" id="22"/>

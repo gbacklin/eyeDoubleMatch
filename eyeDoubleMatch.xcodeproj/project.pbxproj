@@ -1030,7 +1030,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ezeprod.eyeDoubleMatch;
 				PRODUCT_NAME = eyeDoubleMatch;
-				PROVISIONING_PROFILE = "1ab50567-7101-48f4-8630-eecb0be4f82b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1056,7 +1056,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ezeprod.eyeDoubleMatch;
 				PRODUCT_NAME = eyeDoubleMatch;
-				PROVISIONING_PROFILE = "1ab50567-7101-48f4-8630-eecb0be4f82b";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1120,8 +1120,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ezeprod.eyeDoubleMatch;
 				PRODUCT_NAME = eyeDoubleMatch;
-				PROVISIONING_PROFILE = "1ab50567-7101-48f4-8630-eecb0be4f82b";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1ab50567-7101-48f4-8630-eecb0be4f82b";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = "Distribution AdHoc";
@@ -1246,7 +1246,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ezeprod.eyeDoubleMatch;
 				PRODUCT_NAME = eyeDoubleMatch;
-				PROVISIONING_PROFILE = "1ab50567-7101-48f4-8630-eecb0be4f82b";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
