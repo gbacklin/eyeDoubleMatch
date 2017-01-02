@@ -93,6 +93,8 @@
 	assert([NSThread isMainThread]);
 	if([delegate respondsToSelector:selector])
 	{
+#       pragma clang diagnostic push
+#       pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 		if(arg != NULL)
 		{
 			[delegate performSelector:selector withObject:arg withObject:err];
@@ -102,6 +104,7 @@
 			[delegate performSelector:selector withObject:err];
 		}
 	}
+#       pragma clang diagnostic pop
 	else
 	{
 		NSLog(@"Missed Method");
@@ -140,25 +143,28 @@
 			[self callDelegateOnMainThread:@selector(processGameCenterAuth:)withArg:NULL error:error];
 		}];
 	}
+    
 }
 
 - (void)reloadTodayHighScoresForCategory:(NSString*)category
 {
 	GKLeaderboard* leaderBoard= [[GKLeaderboard alloc] init];
-	leaderBoard.category= category;
+	leaderBoard.identifier= category;
 	leaderBoard.timeScope= GKLeaderboardTimeScopeToday;
 	leaderBoard.range= NSMakeRange(1, 1);
 	
 	[leaderBoard loadScoresWithCompletionHandler: ^(NSArray *scores, NSError *error)
 	 {
-		 [self callDelegateOnMainThread:@selector(reloadTodayScoresComplete:error:)withArg:leaderBoard error:error];
+         SEL selector = NSSelectorFromString(@"reloadTodayScoresComplete:error:");
+
+         [self callDelegate:selector withArg:leaderBoard error:error];
 	 }];
 }
 
 - (void)reloadHighScoresForCategory:(NSString*)category
 {
 	GKLeaderboard* leaderBoard= [[GKLeaderboard alloc] init];
-	leaderBoard.category= category;
+	leaderBoard.identifier= category;
 	leaderBoard.timeScope= GKLeaderboardTimeScopeAllTime;
 	leaderBoard.range= NSMakeRange(1, 1);
 	
@@ -170,12 +176,11 @@
 
 - (void)reportScore:(int64_t)score forCategory:(NSString*)category 
 {
-	GKScore *scoreReporter = [[GKScore alloc] initWithCategory:category];	
+	GKScore *scoreReporter = [[GKScore alloc] initWithLeaderboardIdentifier:category];
 	scoreReporter.value = score;
-	[scoreReporter reportScoreWithCompletionHandler:^(NSError *error)
-	 {
-		 [self callDelegateOnMainThread:@selector(scoreReported:)withArg:NULL error:error];
-	 }];
+    [GKScore reportScores:@[scoreReporter] withCompletionHandler:^(NSError * _Nullable error) {
+        [self callDelegateOnMainThread:@selector(scoreReported:)withArg:NULL error:error];
+    }];
 }
 
 - (void)submitAchievement:(NSString*)identifier percentComplete:(double)percentComplete
@@ -230,10 +235,9 @@
 		if(achievement!= NULL)
 		{
 			//Submit the Achievement...
-			[achievement reportAchievementWithCompletionHandler:^(NSError *error)
-			{
-				 [self callDelegateOnMainThread:@selector(achievementSubmitted:error:)withArg:achievement error:error];
-			}];
+            [GKAchievement reportAchievements:@[achievement] withCompletionHandler:^(NSError * _Nullable error) {
+                [self callDelegateOnMainThread:@selector(achievementSubmitted:error:)withArg:achievement error:error];
+            }];
 		}
 	}
 }

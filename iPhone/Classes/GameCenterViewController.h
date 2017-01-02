@@ -11,7 +11,7 @@
 #import "GameCenterManager.h"
 
 
-@interface GameCenterViewController : UIViewController <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate> {
+@interface GameCenterViewController : UIViewController <GKGameCenterControllerDelegate> {
 	id __unsafe_unretained delegate;
 	NSString *__unsafe_unretained currentLeaderBoard;
 	GameCenterManager *gameCenterManager;

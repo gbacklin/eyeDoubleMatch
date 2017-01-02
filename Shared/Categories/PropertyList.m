@@ -12,16 +12,13 @@
 @implementation NSDictionary(PropertyList)
 
 + (NSDictionary *)dictionaryFromPropertyList:(NSString *)filename {
-	NSString *errorDesc = nil; 
+    NSError *error;
 	NSPropertyListFormat format; 
 	NSString *plistPath = [[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]; 
-	NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath]; 
-	NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization 
-										  propertyListFromData:plistXML 
-										  mutabilityOption:NSPropertyListMutableContainersAndLeaves 
-										  format:&format errorDescription:&errorDesc]; 
-	if (!temp) { 
-		NSLog(@"%@",errorDesc); 
+	NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
+    NSDictionary *temp = [NSPropertyListSerialization propertyListWithData:plistXML options:NSPropertyListMutableContainersAndLeaves format:&format error:&error];
+	if (!temp) {
+		NSLog(@"%@", [error localizedDescription]);
 	}
 	
 	return temp;

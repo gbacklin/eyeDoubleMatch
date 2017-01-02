@@ -27,38 +27,33 @@
 #pragma mark GameCenter View Controllers
 
 - (IBAction)showLeaderboard:(id)sender {
-	GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
-	if (leaderboardController != NULL) {
-		leaderboardController.category = self.currentLeaderBoard;
-		leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
-		leaderboardController.leaderboardDelegate = self; 
-        [self presentViewController:leaderboardController animated:YES completion:nil];
-	}
+    GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
+    if (gameCenterController != nil)
+    {
+        gameCenterController.gameCenterDelegate = self;
+        gameCenterController.viewState = GKGameCenterViewControllerStateLeaderboards;
+        gameCenterController.leaderboardTimeScope = GKLeaderboardTimeScopeToday;
+        gameCenterController.leaderboardIdentifier = self.currentLeaderBoard;
+        [self presentViewController: gameCenterController animated: YES completion:nil];
+    }
 }
 
-- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController {
+- (void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)showAchievements:(id)sender {
-	GKAchievementViewController *achievements = [[GKAchievementViewController alloc] init];
-	if (achievements != NULL) {
-		achievements.achievementDelegate = self;
-        [self presentViewController:achievements animated:YES completion:nil];
-	}
+    GKGameCenterViewController* gameCenterController = [[GKGameCenterViewController alloc] init];
+    gameCenterController.viewState = GKGameCenterViewControllerStateAchievements;
+    gameCenterController.gameCenterDelegate = self;
+    [self presentViewController:gameCenterController animated:YES completion:nil];
 }
-
-- (void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 
 - (IBAction)resetAchievements:(id)sender {
 	if([self gameCenterManager]) {
 		[[self gameCenterManager] resetAchievements];
 	}
 }
-
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
@@ -76,7 +71,7 @@
     [super viewDidLoad];
 		
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-	[formatter setNumberStyle:kCFNumberFormatterDecimalStyle];
+	[formatter setNumberStyle:NSNumberFormatterDecimalStyle];
 	[formatter setUsesGroupingSeparator:YES];
 	
 	if([self personalTodayBestScoreString] && [self personalBestScoreString] && [self cachedHighestScore]) {
