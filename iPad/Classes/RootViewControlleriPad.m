@@ -559,7 +559,7 @@
         
         [self presentViewController:controller animated:YES completion:nil];
 	} else {
-		NSString *title = @"Double Match 6.0.14";
+		NSString *title = @"Double Match 7.0.0";
 		NSString *mess = @"To play, you must deal cards to cover each set of pairs one pair at a time, or double tap the deal card for auto-match. \nIf you manage to deal the entire deck, You Win ! \nIf not, then you can try again.\n\nThank you for downloading Double Match and I hope you enjoy it !";
 		// open a alert with an OK and cancel button
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:mess
