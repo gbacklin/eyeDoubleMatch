@@ -80,7 +80,7 @@
 	}
 	
 	[scoreLabel setText:[NSString stringWithFormat:@"%lld", [self currentScore]]];
-	[self loadAdView];
+	//[self loadAdView];
 	
 	NSDictionary *cardDeck = [NSDictionary dictionaryFromPropertyList:@"CardDeck"];
 	[self setDeck:[cardDeck objectForKey:@"Deck"]];
@@ -584,74 +584,74 @@
 #pragma mark -
 #pragma mark - iAd related
 
-- (void)loadAdView {
-    if([self canLoadiAd]) {
-        UIView *aView = (UIView *)adView;
-        aView.frame = CGRectOffset(aView.frame, 0, -50);
-		
-        AdViewController *adBannerView = [[AdViewController alloc] initWithNibName:@"AdViewController" bundle:nil];
-        id bView = [adBannerView view];
-        [bView setBackgroundColor:[UIColor colorWithDisplayP3Red:111.0/255.0 green:113.0/255.0 blue:121.0/255.0 alpha:1.0]];
-        [bView setDelegate:self];
-        [adView addSubview:bView];
-    }
-}
-
-- (BOOL)canLoadiAd {
-    NSArray *array = [[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"." ];
-    NSString *majorVersion = [array objectAtIndex:0];
-    int ver = [majorVersion intValue];
-    if(ver < 4) {
-        return NO;
-    } else {
-        return YES;
-    }
-}
-
-#pragma mark -
-#pragma mark iAd Banner display methods
-
-- (void)hideAdBanner:(UIView *)banner {
-    [UIView beginAnimations:@"animateBanner" context:NULL];
-    // assumes the banner view is at the top of the screen.
-    banner.frame = CGRectOffset(banner.frame, 0, -50);
-    [UIView commitAnimations];
-    [self setBannerVisible:NO];
-}
-
-- (void)showAdBanner:(UIView *)banner {
-    [UIView beginAnimations:@"animateBanner" context:NULL];
-    // assumes the banner view is at the top of the screen.
-    banner.frame = CGRectOffset(banner.frame, 0, 50);
-    [UIView commitAnimations];
-    [self setBannerVisible:YES];
-}
-
-#pragma mark -
-#pragma mark - iAd delegate methods
-
-- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {
-    BOOL shouldExecuteAction = [self canLoadiAd];
-    if (!willLeave && shouldExecuteAction) {
-        // insert code here to suspend any services that might conflict 
-		// with the advertisement
-    }
-    return shouldExecuteAction;
-}
-
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    if (![self isBannerVisible]) {
-		[self showAdBanner:[self adView]];
-		[self setBannerVisible:YES];
-    }
-}
-
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-	if ([self isBannerVisible]) {
-		[self hideAdBanner:[self adView]];
-		[self setBannerVisible:NO];
-	}
-}
+//- (void)loadAdView {
+//    if([self canLoadiAd]) {
+//        UIView *aView = (UIView *)adView;
+//        aView.frame = CGRectOffset(aView.frame, 0, -50);
+//
+//        AdViewController *adBannerView = [[AdViewController alloc] initWithNibName:@"AdViewController" bundle:nil];
+//        id bView = [adBannerView view];
+//        [bView setBackgroundColor:[UIColor colorWithDisplayP3Red:111.0/255.0 green:113.0/255.0 blue:121.0/255.0 alpha:1.0]];
+//        [bView setDelegate:self];
+//        [adView addSubview:bView];
+//    }
+//}
+//
+//- (BOOL)canLoadiAd {
+//    NSArray *array = [[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"." ];
+//    NSString *majorVersion = [array objectAtIndex:0];
+//    int ver = [majorVersion intValue];
+//    if(ver < 4) {
+//        return NO;
+//    } else {
+//        return YES;
+//    }
+//}
+//
+//#pragma mark -
+//#pragma mark iAd Banner display methods
+//
+//- (void)hideAdBanner:(UIView *)banner {
+//    [UIView beginAnimations:@"animateBanner" context:NULL];
+//    // assumes the banner view is at the top of the screen.
+//    banner.frame = CGRectOffset(banner.frame, 0, -50);
+//    [UIView commitAnimations];
+//    [self setBannerVisible:NO];
+//}
+//
+//- (void)showAdBanner:(UIView *)banner {
+//    [UIView beginAnimations:@"animateBanner" context:NULL];
+//    // assumes the banner view is at the top of the screen.
+//    banner.frame = CGRectOffset(banner.frame, 0, 50);
+//    [UIView commitAnimations];
+//    [self setBannerVisible:YES];
+//}
+//
+//#pragma mark -
+//#pragma mark - iAd delegate methods
+//
+//- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {
+//    BOOL shouldExecuteAction = [self canLoadiAd];
+//    if (!willLeave && shouldExecuteAction) {
+//        // insert code here to suspend any services that might conflict
+//		// with the advertisement
+//    }
+//    return shouldExecuteAction;
+//}
+//
+//- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
+//    if (![self isBannerVisible]) {
+//		[self showAdBanner:[self adView]];
+//		[self setBannerVisible:YES];
+//    }
+//}
+//
+//- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+//	if ([self isBannerVisible]) {
+//		[self hideAdBanner:[self adView]];
+//		[self setBannerVisible:NO];
+//	}
+//}
 
 #pragma mark -
 #pragma mark Game Center functionality

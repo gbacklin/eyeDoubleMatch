@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iAd/iAd.h>
+//#import <iAd/iAd.h>
 #import <GameKit/GameKit.h>
 #import "GameCenterManager.h"
 
 
-@interface RootViewControlleriPad :UIViewController <UIAlertViewDelegate, UIActionSheetDelegate, GameCenterManagerDelegate, ADBannerViewDelegate> {
+@interface RootViewControlleriPad :UIViewController <UIAlertViewDelegate, UIActionSheetDelegate, GameCenterManagerDelegate> {
 	UIImageView *pile1;
 	UIImageView *pile2;
 	UIImageView *pile3;
@@ -161,10 +161,10 @@
 #pragma mark -
 #pragma mark iAd Methods
 
-- (void)loadAdView;
-- (BOOL)canLoadiAd;
-- (void)hideAdBanner:(UIView *)banner;
-- (void)showAdBanner:(UIView *)banner;
+//- (void)loadAdView;
+//- (BOOL)canLoadiAd;
+//- (void)hideAdBanner:(UIView *)banner;
+//- (void)showAdBanner:(UIView *)banner;
 
 #pragma mark -
 #pragma mark SearchDetailViewController delegate methods
