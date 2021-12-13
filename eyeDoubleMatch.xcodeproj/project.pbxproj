@@ -1027,7 +1027,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "eyeDoubleMatch-Info.plist";
-				MARKETING_VERSION = 7.1.0;
+				MARKETING_VERSION = 7.1.1;
 				OTHER_LDFLAGS = (
 					"-weak_library",
 					/usr/lib/libSystem.B.dylib,
@@ -1057,7 +1057,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "eyeDoubleMatch-Info.plist";
-				MARKETING_VERSION = 7.1.0;
+				MARKETING_VERSION = 7.1.1;
 				OTHER_LDFLAGS = (
 					"-weak_library",
 					/usr/lib/libSystem.B.dylib,
@@ -1134,7 +1134,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "eyeDoubleMatch-Info.plist";
-				MARKETING_VERSION = 7.1.0;
+				MARKETING_VERSION = 7.1.1;
 				OTHER_LDFLAGS = (
 					"-weak_library",
 					/usr/lib/libSystem.B.dylib,
@@ -1291,7 +1291,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "eyeDoubleMatch-Info.plist";
-				MARKETING_VERSION = 7.1.0;
+				MARKETING_VERSION = 7.1.1;
 				OTHER_LDFLAGS = (
 					"-weak_library",
 					/usr/lib/libSystem.B.dylib,
