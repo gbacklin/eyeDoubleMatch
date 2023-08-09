@@ -1017,7 +1017,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 8DT5Y3HP4L;
 				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1027,7 +1027,8 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "eyeDoubleMatch-Info.plist";
-				MARKETING_VERSION = 7.1.1;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
+				MARKETING_VERSION = 8.0.0;
 				OTHER_LDFLAGS = (
 					"-weak_library",
 					/usr/lib/libSystem.B.dylib,
@@ -1049,7 +1050,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 8DT5Y3HP4L;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1057,7 +1058,8 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "eyeDoubleMatch-Info.plist";
-				MARKETING_VERSION = 7.1.1;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
+				MARKETING_VERSION = 8.0.0;
 				OTHER_LDFLAGS = (
 					"-weak_library",
 					/usr/lib/libSystem.B.dylib,
@@ -1126,7 +1128,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 8DT5Y3HP4L;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1134,7 +1136,8 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "eyeDoubleMatch-Info.plist";
-				MARKETING_VERSION = 7.1.1;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
+				MARKETING_VERSION = 8.0.0;
 				OTHER_LDFLAGS = (
 					"-weak_library",
 					/usr/lib/libSystem.B.dylib,
@@ -1283,7 +1286,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 8DT5Y3HP4L;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1291,7 +1294,8 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "eyeDoubleMatch-Info.plist";
-				MARKETING_VERSION = 7.1.1;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
+				MARKETING_VERSION = 8.0.0;
 				OTHER_LDFLAGS = (
 					"-weak_library",
 					/usr/lib/libSystem.B.dylib,
